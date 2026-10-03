@@ -1,0 +1,27 @@
+{
+  "name": "todo-list",
+  "version": "1.0.0",
+  "description": "The Odin Project Todo-list assignment.",
+  "main": "index.js",
+  "scripts": {
+  "build": "webpack",
+  "dev": "webpack serve"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spanky45/todo-list.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/Spanky45/todo-list/issues"
+  },
+  "homepage": "https://github.com/Spanky45/todo-list#readme",
+  "devDependencies": {
+    "css-loader": "^7.1.5",
+    "html-webpack-plugin": "^5.6.8",
+    "style-loader": "^4.0.0",
+    "webpack": "^5.111.1",
+    "webpack-cli": "^7.2.3",
+    "webpack-dev-server": "^6.0.0"
+  }
+}
