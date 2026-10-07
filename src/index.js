@@ -1,9 +1,9 @@
 import "./styles.css";
 import { Todo } from "./todo";
 import { Project } from "./project";
+import { TodoManager } from "./todoManager";
 
-const school = new Project("School");
-
+const manager = new TodoManager();
 const homework = new Todo(
     "Finish homework",
     "Finish JavaScript assignment",
@@ -12,7 +12,15 @@ const homework = new Todo(
     "Do chapter 5 first"
 );
 
+manager.addProject("School");
+manager.addProject("Work");
+
+const school = manager.getProject("School");
+
 school.addTodo(homework);
+school.removeTodo(homework);
+// manager.addProject("School");
+// manager.addProject("Work");
 
 console.log(school);
-console.log("Webpack is working!");
+console.log(manager);

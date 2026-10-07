@@ -7,6 +7,10 @@ class Project {
     addTodo(todo) {
         this.todos.push(todo);
     }
+
+    removeTodo(todoToRemove) {
+        this.todos = this.todos.filter((todo) => todo !== todoToRemove);
+    }
 }
 
 export { Project };
