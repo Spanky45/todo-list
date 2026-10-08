@@ -15,6 +15,10 @@ class TodoManager {
     getProject(nameToFind) {
         return this.projects.find((project) => project.name === nameToFind);
     }
+
+    removeProject(nameToRemove) {
+        this.projects = this.projects.filter((project) => project.name !== nameToRemove);
+    }
 }
 
 export { TodoManager}

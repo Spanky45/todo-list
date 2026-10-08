@@ -19,8 +19,8 @@ const school = manager.getProject("School");
 
 school.addTodo(homework);
 school.removeTodo(homework);
-// manager.addProject("School");
-// manager.addProject("Work");
+
+manager.removeProject("School");
 
 console.log(school);
 console.log(manager);

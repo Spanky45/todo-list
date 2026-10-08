@@ -8,6 +8,17 @@ class Todo {
         this.completed = false;
     }
 
+    toggleComplete() {
+        let completed = false
+        completed = !completed
+        this.completed = completed
+    }
+
+    toggleComplete() {
+        this.completed = !this.completed
+    }
+
+
 }
 
 export { Todo };
