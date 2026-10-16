@@ -64,3 +64,13 @@ button {
     border-radius: 6px;
     text-align: left;
 }
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.projects-list button {
+    width: 100%;
+}

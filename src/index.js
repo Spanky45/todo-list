@@ -2,6 +2,8 @@ import "./styles.css";
 import { Todo } from "./todo";
 import { Project } from "./project";
 import { TodoManager } from "./todoManager";
+import { renderProjects } from "./dom";
+import { renderTodos } from "./dom";
 
 const manager = new TodoManager();
 const homework = new Todo(
@@ -18,9 +20,12 @@ manager.addProject("Work");
 const school = manager.getProject("School");
 
 school.addTodo(homework);
-school.removeTodo(homework);
+// school.removeTodo(homework);
 
-manager.removeProject("School");
+// manager.removeProject("School");
 
 console.log(school);
 console.log(manager);
+
+renderProjects(manager);
+// renderTodos(school);
