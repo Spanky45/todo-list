@@ -4,6 +4,7 @@ import { Project } from "./project";
 import { TodoManager } from "./todoManager";
 import { renderProjects } from "./dom";
 import { renderTodos } from "./dom";
+import { setupAddProject } from "./dom";
 
 const manager = new TodoManager();
 const homework = new Todo(
@@ -28,4 +29,5 @@ console.log(school);
 console.log(manager);
 
 renderProjects(manager);
+setupAddProject(manager);
 // renderTodos(school);

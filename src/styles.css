@@ -74,3 +74,41 @@ button {
 .projects-list button {
     width: 100%;
 }
+
+.add-project-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.add-project-form[hidden] {
+    display: none;
+}
+
+.add-project-form-btn-container button {
+    font-family: inherit;
+    color: var(--text-secondary);
+    background-color: rgb(50, 50, 50);
+    border: none;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 6px;
+    text-align: left;
+}
+
+.add-project-form-btn-container {
+    display: flex;
+    gap: 10px;
+}
+
+.project-name-input {
+    margin-right: 10px;
+    background-color: rgb(50, 50, 50);
+    border-radius: 6px;
+    box-shadow: none;
+    border: none;
+    padding: 0 6px;
+    color: var(--text-secondary);
+}
