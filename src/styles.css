@@ -112,3 +112,12 @@ button {
     padding: 0 6px;
     color: var(--text-secondary);
 }
+
+.add-todo-form[hidden] {
+    display: none;
+}
+
+.add-todo-form {
+    display: flex;
+    flex-direction: column;
+}

@@ -16,7 +16,7 @@
             <form class="add-project-form" hidden>
                 <input type="text" class="project-name-input" placeholder="Project name:" required>
                 <div class="add-project-form-btn-container">
-                    <button type="submit">Add</button>
+                    <button type="submit" class="add-project-submit-btn">Add</button>
                     <button type="button" class="cancel-project-btn">Cancel</button>
                 </div>
             </form>
@@ -26,6 +26,22 @@
         <main class="main-content">
             <h2 class="current-project-title">Default</h2>
             <div class="todo-list"></div>
+            <form class="add-todo-form" hidden>
+                <input type="text" class="todo-title" placeholder="Todo title:" required>
+                <input type="textarea" class="todo-description" placeholder="Description:">
+                <input type="datetime" class="todo-due">
+                <label for="todo-priority">Priority level:</label>
+                <select id="todo-priority" name="todo-priority">
+                    <option value="low">Low</option>
+                    <option value="medium">Medium</option>
+                    <option value="high">High</option>
+                </select>
+                <input type="textarea" class="todo-notes" placeholder="Notes:">
+                <div class="add-todo-form-btn-container">
+                    <button type="submit" class="add-todo-submit-btn">Add</button>
+                    <button type="button" class="cancel-todo-btn">Cancel</button>
+                </div>
+            </form>
             <button class="add-todo-btn">+ Add Todo</button>
         </main>
     </div>

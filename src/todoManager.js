@@ -5,6 +5,8 @@ class TodoManager {
         this.projects = [
             new Project("Default")
         ];
+
+        this.activeProject = this.projects[0];
     }
 
     addProject(name) {

@@ -20,6 +20,7 @@ function renderProjects(manager) {
         projectName.addEventListener("click", () => {
             projectTitle.textContent = project.name;
             renderTodos(project);
+            manager.activeProject = project
         });
 
         projectsList.appendChild(projectName);
@@ -57,9 +58,11 @@ function setupAddProject(manager) {
     const addProjectForm = document.querySelector(".add-project-form");
     const projectNameInput = document.querySelector(".project-name-input");
     const cancelProjectBtn = document.querySelector(".cancel-project-btn");
+    const addProjectSubmitBtn = document.querySelector(".add-project-submit-btn");
 
     addProjectBtn.addEventListener("click", () => {
         addProjectForm.hidden = false;
+        addProjectBtn.hidden = true;
     });
 
     addProjectForm.addEventListener("submit", (event) => {
@@ -81,11 +84,48 @@ function setupAddProject(manager) {
         addProjectForm.hidden = true;
     });
 
+    addProjectSubmitBtn.addEventListener("click", () => {
+        addProjectBtn.hidden = false;
+    })
+
     cancelProjectBtn.addEventListener("click", () => {
         // Discard unsaved input when the user cancels
         addProjectForm.hidden = true;
         projectNameInput.value = "";
+        addProjectBtn.hidden = false;
     });
 }
 
-export { renderProjects, renderTodos, setupAddProject };
+function setupAddTodo(project) {
+    const addTodoBtn = document.querySelector(".add-todo-btn");
+    const addTodoForm = document.querySelector(".add-todo-form");
+    const addTodoSubmitBtn = document.querySelector(".add-todo-submit-btn");
+    const cancelTodoBtn = document.querySelector(".cancel-todo-btn");
+    const todoTitle = document.querySelector(".todo-title");
+    const todoDescription = document.querySelector(".todo-description");
+    const todoDue = document.querySelector(".todo-due");
+    const todoPriority = document.querySelector("#todo-priority");
+    const todoNotes = document.querySelector(".todo-notes");
+
+
+    addTodoBtn.addEventListener("click", () => {
+        addTodoForm.hidden = false;
+        addTodoBtn.hidden = true;
+    });
+
+    cancelTodoBtn.addEventListener("click", () => {
+        addTodoForm.hidden = true;
+        addTodoBtn.hidden = false;
+
+        // inputs empty here
+        todoTitle.value = "";
+        todoDescription.value = "";
+        todoNotes.value = "";
+    });
+
+    addTodoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+    })
+}
+
+export { renderProjects, renderTodos, setupAddProject, setupAddTodo };
