@@ -1,3 +1,5 @@
+import { Todo } from "./todo";
+
 
 /**
  * Displays all projects in the sidebar.
@@ -58,8 +60,7 @@ function setupAddProject(manager) {
     const addProjectForm = document.querySelector(".add-project-form");
     const projectNameInput = document.querySelector(".project-name-input");
     const cancelProjectBtn = document.querySelector(".cancel-project-btn");
-    const addProjectSubmitBtn = document.querySelector(".add-project-submit-btn");
-
+    
     addProjectBtn.addEventListener("click", () => {
         addProjectForm.hidden = false;
         addProjectBtn.hidden = true;
@@ -82,11 +83,8 @@ function setupAddProject(manager) {
         // Reset and hide the form after successful submission
         projectNameInput.value = "";
         addProjectForm.hidden = true;
-    });
-
-    addProjectSubmitBtn.addEventListener("click", () => {
         addProjectBtn.hidden = false;
-    })
+    });
 
     cancelProjectBtn.addEventListener("click", () => {
         // Discard unsaved input when the user cancels
@@ -96,10 +94,9 @@ function setupAddProject(manager) {
     });
 }
 
-function setupAddTodo(project) {
+function setupAddTodo(manager) {
     const addTodoBtn = document.querySelector(".add-todo-btn");
     const addTodoForm = document.querySelector(".add-todo-form");
-    const addTodoSubmitBtn = document.querySelector(".add-todo-submit-btn");
     const cancelTodoBtn = document.querySelector(".cancel-todo-btn");
     const todoTitle = document.querySelector(".todo-title");
     const todoDescription = document.querySelector(".todo-description");
@@ -121,11 +118,35 @@ function setupAddTodo(project) {
         todoTitle.value = "";
         todoDescription.value = "";
         todoNotes.value = "";
+        todoDue.value = "";
+        todoPriority.value = "low";
     });
 
     addTodoForm.addEventListener("submit", (e) => {
         e.preventDefault();
-    })
+
+        const title = todoTitle.value.trim();
+        const description = todoDescription.value.trim();
+        const due = todoDue.value;
+        const priority = todoPriority.value;
+        const notes = todoNotes.value.trim();
+
+        const newTodo = new Todo(title, description, due, priority, notes);
+
+        manager.activeProject.addTodo(newTodo);
+
+        renderTodos(manager.activeProject);
+
+        addTodoForm.hidden = true;
+        addTodoBtn.hidden = false;
+        
+
+        todoTitle.value = "";
+        todoDescription.value = "";
+        todoNotes.value = "";
+        todoDue.value = "";
+        todoPriority.value = "low";
+    });
 }
 
 export { renderProjects, renderTodos, setupAddProject, setupAddTodo };

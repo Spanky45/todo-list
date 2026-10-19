@@ -9,12 +9,6 @@ class Todo {
     }
 
     toggleComplete() {
-        let completed = false
-        completed = !completed
-        this.completed = completed
-    }
-
-    toggleComplete() {
         this.completed = !this.completed
     }
 
