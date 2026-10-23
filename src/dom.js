@@ -43,7 +43,39 @@ function renderTodos(project) {
     project.todos.forEach((todo) => {
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
-        todoItem.textContent = todo.title;
+
+        const todoHeader = document.createElement("div");
+        todoHeader.classList.add("todo-header");
+        todoItem.appendChild(todoHeader);
+
+        const todoTitle = document.createElement("h3");
+        todoTitle.textContent = todo.title;
+
+        const todoPriority = document.createElement("span");
+        todoPriority.textContent = todo.priority.toUpperCase();
+
+        todoHeader.append(todoTitle, todoPriority);
+
+        const todoDetails = document.createElement("div");
+        todoDetails.classList.add("todo-details");
+        todoItem.appendChild(todoDetails);
+
+        const todoDue = document.createElement("p");
+        todoDue.classList.add("todo-date");
+
+        if (todo.dueDate === "") {
+            todoDue.textContent = "No due date";
+        } else {
+            const date = new Date(todo.dueDate + "T00:00:00");
+
+            todoDue.textContent = "Due: " + date.toLocaleDateString(undefined, {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+            });
+        }
+
+        todoDetails.appendChild(todoDue);
 
         todoListContainer.appendChild(todoItem);
     });
@@ -127,9 +159,12 @@ function setupAddTodo(manager) {
 
         const title = todoTitle.value.trim();
         const description = todoDescription.value.trim();
-        const due = todoDue.value;
         const priority = todoPriority.value;
         const notes = todoNotes.value.trim();
+        const due = todoDue.value;
+            // if (todoDue.value = undefined) {
+            //     todo.due
+            // }
 
         const newTodo = new Todo(title, description, due, priority, notes);
 
