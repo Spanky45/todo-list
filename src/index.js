@@ -15,6 +15,20 @@ const homework = new Todo(
     "high",
     "Do chapter 5 first"
 );
+const poop = new Todo(
+    "Finish pooping",
+    "Finish poop assignment",
+    "2026-12-11",
+    "low",
+    "Do chapter poop first"
+);
+const fart = new Todo(
+    "Fart practice",
+    "Finish fart assignment",
+    "2026-11-10",
+    "medium",
+    "Do chapter fart first"
+);
 
 manager.addProject("School");
 manager.addProject("Work");
@@ -22,6 +36,11 @@ manager.addProject("Work");
 const school = manager.getProject("School");
 
 school.addTodo(homework);
+school.addTodo(homework);
+school.addTodo(poop);
+school.addTodo(poop);
+school.addTodo(fart);
+school.addTodo(fart);
 
 console.log(school);
 console.log(manager);
