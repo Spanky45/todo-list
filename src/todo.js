@@ -6,6 +6,7 @@ class Todo {
         this.priority = priority;
         this.notes = notes;
         this.completed = false;
+        this.createdAt = new Date();
     }
 
     toggleComplete() {

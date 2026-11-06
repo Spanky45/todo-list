@@ -6,6 +6,7 @@ import { renderProjects } from "./dom";
 import { renderTodos } from "./dom";
 import { setupAddProject } from "./dom";
 import { setupAddTodo } from "./dom";
+import { setupTodoSort } from "./dom";
 
 const manager = new TodoManager();
 const homework = new Todo(
@@ -48,3 +49,4 @@ console.log(manager);
 renderProjects(manager);
 setupAddProject(manager);
 setupAddTodo(manager);
+setupTodoSort(manager);

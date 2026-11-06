@@ -54,6 +54,18 @@ function renderTodos(project) {
         todosCopy.sort((a, b) => {
             return priorityValues[b.priority] - priorityValues[a.priority]
         });
+    } else if (selectedSort === "newest") {
+        todosCopy.sort((a, b) => {
+            return b.createdAt - a.createdAt
+        });
+    } else if (selectedSort === "oldest") {
+        todosCopy.sort((a, b) => {
+            return a.createdAt - b.createdAt
+        });
+    } else if (selectedSort === "due-early") {
+        todosCopy.sort((a, b) => {
+            return a.dueDate > b.dueDate
+        });
     }
 
     todosCopy.forEach((todo) => {
@@ -197,4 +209,12 @@ function setupAddTodo(manager) {
     });
 }
 
-export { renderProjects, renderTodos, setupAddProject, setupAddTodo };
+function setupTodoSort(manager) {
+    const sortSelector = document.querySelector("#todo-sort");
+    
+    sortSelector.addEventListener("change", () => {
+        renderTodos(manager.activeProject);
+    });
+}
+
+export { renderProjects, renderTodos, setupAddProject, setupAddTodo, setupTodoSort };
