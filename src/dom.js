@@ -40,7 +40,19 @@ function renderTodos(project) {
     // Clear previously displayed todos when switching projects
     todoListContainer.textContent = "";
 
-    project.todos.forEach((todo) => {
+    const todosCopy = [...project.todos];
+
+    const priorityValues = {
+        high: 3,
+        medium: 2,
+        low: 1
+    };
+
+    todosCopy.sort((a, b) => {
+        return priorityValues[b.priority] - priorityValues[a.priority]
+    });
+
+    todosCopy.forEach((todo) => {
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
 
