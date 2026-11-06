@@ -50,8 +50,21 @@ header {
     margin-bottom: 20px;
 }
 
-.current-project-title {
+.todo-section-header {
+    display: flex;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 20px;
+}
+
+#todo-sort {
+    height: 25px;
+    padding: 0 3px;
+    background-color: var(--sidebar);
+    color: var(--text-secondary);
+    border-color: var(--border);
+    border-radius: 6px;
 }
 
 button {

@@ -42,15 +42,19 @@ function renderTodos(project) {
 
     const todosCopy = [...project.todos];
 
-    const priorityValues = {
-        high: 3,
-        medium: 2,
-        low: 1
-    };
+    const selectedSort = document.querySelector("#todo-sort").value;
 
-    todosCopy.sort((a, b) => {
-        return priorityValues[b.priority] - priorityValues[a.priority]
-    });
+    if (selectedSort === "priority") {
+        const priorityValues = {
+            high: 3,
+            medium: 2,
+            low: 1
+        };
+
+        todosCopy.sort((a, b) => {
+            return priorityValues[b.priority] - priorityValues[a.priority]
+        });
+    }
 
     todosCopy.forEach((todo) => {
         const todoItem = document.createElement("div");
@@ -174,9 +178,6 @@ function setupAddTodo(manager) {
         const priority = todoPriority.value;
         const notes = todoNotes.value.trim();
         const due = todoDue.value;
-            // if (todoDue.value = undefined) {
-            //     todo.due
-            // }
 
         const newTodo = new Todo(title, description, due, priority, notes);
 

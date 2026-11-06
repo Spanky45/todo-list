@@ -24,7 +24,16 @@
         </aside>
 
         <main class="main-content">
-            <h2 class="current-project-title">Default</h2>
+            <div class="todo-section-header">
+                <h2 class="current-project-title">Default</h2>
+                <select id="todo-sort" name="todo-sort" aria-label="Sort todos">
+                    <option value="priority" selected>Priority (High to Low)</option>
+                    <option value="newest">Newest First</option>
+                    <option value="oldest">Oldest First</option>
+                    <option value="due-early">Due Date (Earliest First)</option>
+                    <option value="due-late">Due Date (Latest First)</option>
+                </select>
+            </div>
             <div class="todo-list"></div>
             <form class="add-todo-form" hidden>
                 <input type="text" class="todo-title" placeholder="Todo title:" required>
