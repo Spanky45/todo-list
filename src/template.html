@@ -25,7 +25,10 @@
 
         <main class="main-content">
             <div class="todo-section-header">
-                <h2 class="current-project-title">Default</h2>
+                <div class="left-side-header">
+                    <h2 class="current-project-title">Default</h2>
+                    <button class="add-todo-btn">+ Add Todo</button>
+                </div>
                 <select id="todo-sort" name="todo-sort" aria-label="Sort todos">
                     <option value="priority" selected>Priority (High to Low)</option>
                     <option value="newest">Newest First</option>
@@ -34,7 +37,6 @@
                     <option value="due-late">Due Date (Latest First)</option>
                 </select>
             </div>
-            <div class="todo-list"></div>
             <form class="add-todo-form" hidden>
                 <input type="text" class="todo-title" placeholder="Todo title:" required>
                 <textarea class="todo-description" placeholder="Description:"></textarea>
@@ -51,7 +53,7 @@
                     <button type="button" class="cancel-todo-btn">Cancel</button>
                 </div>
             </form>
-            <button class="add-todo-btn">+ Add Todo</button>
+            <div class="todo-list"></div>
         </main>
     </div>
 </body>

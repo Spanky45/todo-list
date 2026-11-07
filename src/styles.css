@@ -58,6 +58,15 @@ header {
     margin-bottom: 20px;
 }
 
+.left-side-header {
+    display: flex;
+    gap: 20px;
+}
+
+.add-todo-btn {
+    padding: 0;
+}
+
 #todo-sort {
     height: 25px;
     padding: 0 3px;
