@@ -64,7 +64,37 @@ function renderTodos(project) {
         });
     } else if (selectedSort === "due-early") {
         todosCopy.sort((a, b) => {
-            return a.dueDate > b.dueDate
+            if (a.dueDate === "" && b.dueDate !== "") {
+                return 1;
+            } else if (a.dueDate !== "" && b.dueDate === "") {
+                return -1;
+            } else if (a.dueDate === "" && b.dueDate === "") {
+                return 0;
+            }
+
+            if (a.dueDate < b.dueDate) {
+                return -1;
+            } else if (a.dueDate > b.dueDate) {
+                return 1;
+            }
+            return 0;
+        });
+    } else if (selectedSort === "due-late") {
+        todosCopy.sort((a, b) => {
+            if (a.dueDate === "" && b.dueDate !== "") {
+                return 1;
+            } else if (a.dueDate !== "" && b.dueDate === "") {
+                return -1;
+            } else if (a.dueDate === "" && b.dueDate === "") {
+                return 0;
+            }
+
+            if (a.dueDate < b.dueDate) {
+                return 1;
+            } else if (a.dueDate > b.dueDate) {
+                return -1;
+            }
+            return 0;
         });
     }
 
