@@ -102,6 +102,10 @@ function renderTodos(project) {
         const todoItem = document.createElement("div");
         todoItem.classList.add("todo-item");
 
+        if (todo.completed) {
+            todoItem.classList.add("todo-completed");
+        }
+
         const todoHeader = document.createElement("div");
         todoHeader.classList.add("todo-header");
         todoItem.appendChild(todoHeader);
@@ -118,6 +122,17 @@ function renderTodos(project) {
         todoDetails.classList.add("todo-details");
         todoItem.appendChild(todoDetails);
 
+        const todoCheck = document.createElement("input");
+        todoCheck.type = "checkbox";
+        todoCheck.checked = todo.completed;
+        todoCheck.classList.add("todo-check");
+        todoCheck.addEventListener("change", () => {
+            todo.toggleComplete();
+        });
+
+        const todoCheckLabel = document.createElement("label")
+        todoCheckLabel.textContent = "Completed"
+
         const todoDue = document.createElement("p");
         todoDue.classList.add("todo-date");
 
@@ -133,7 +148,8 @@ function renderTodos(project) {
             });
         }
 
-        todoDetails.appendChild(todoDue);
+        todoCheckLabel.prepend(todoCheck);
+        todoDetails.append(todoDue, todoCheckLabel);
 
         todoListContainer.appendChild(todoItem);
     });

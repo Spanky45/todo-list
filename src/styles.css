@@ -158,10 +158,24 @@ button {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    row-gap: 12px;
 }
 
 .todo-header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+}
+
+.todo-details {
+    display: flex;
+    justify-content: space-between;
+}
+
+.todo-check {
+    margin-right: 5px;
+}
+
+.todo-completed {
+    opacity: 50%;
 }

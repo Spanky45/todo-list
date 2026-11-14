@@ -7,6 +7,7 @@ class Todo {
         this.notes = notes;
         this.completed = false;
         this.createdAt = new Date();
+        this.id = crypto.randomUUID();
     }
 
     toggleComplete() {
