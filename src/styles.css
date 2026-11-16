@@ -177,5 +177,9 @@ button {
 }
 
 .todo-completed {
-    opacity: 50%;
+    opacity: 0.5;
+}
+
+.todo-completed h3 {
+    text-decoration: line-through;
 }

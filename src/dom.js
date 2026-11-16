@@ -128,6 +128,12 @@ function renderTodos(project) {
         todoCheck.classList.add("todo-check");
         todoCheck.addEventListener("change", () => {
             todo.toggleComplete();
+
+            if (todo.completed) {
+            todoItem.classList.add("todo-completed");
+            } else {
+                todoItem.classList.remove("todo-completed");
+            }
         });
 
         const todoCheckLabel = document.createElement("label")
